@@ -34,6 +34,6 @@
     </environments>-->
     <!-- 定义SQL映射语句路径 -->
     <mappers>
-        <mapper resource="abc.xml" />
+        <mapper resource="forum/forumThread.xml" />
     </mappers>
 </configuration>

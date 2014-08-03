@@ -1,18 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
-    <profiles>
-        <profile>
-            <id>development</id>
-        </profile>
-        <profile>
-            <id>production</id>
-        </profile>
-    </profiles>
-
+<profilesXml xmlns="http://maven.apache.org/PROFILES/1.0.0"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://maven.apache.org/PROFILES/1.0.0 http://maven.apache.org/xsd/profiles-1.0.0.xsd">
+     <profiles>
+         <profile>
+             <id>development</id>
+             <repositories>
+                 <repository>
+                     <id>maven-net-cn</id>
+                     <name>Maven China Mirror</name>
+                     <url>http://maven.net.cn/content/groups/public/</url>
+                     <releases>
+                         <enabled>true</enabled>
+                     </releases>
+                     <snapshots>
+                         <enabled>false</enabled>
+                     </snapshots>
+                 </repository>
+             </repositories>
+             <pluginRepositories>
+                 <pluginRepository>
+                     <id>maven-net-cn</id>
+                     <name>Maven China Mirror</name>
+                     <url>http://maven.net.cn/content/groups/public/</url>
+                     <releases>
+                         <enabled>true</enabled>
+                     </releases>
+                     <snapshots>
+                         <enabled>false</enabled>
+                     </snapshots>
+                 </pluginRepository>
+             </pluginRepositories>
+         </profile>
+         <profile>
+             <id>production</id>
+             <repositories>
+                 <repository>
+                     <id>maven-net-cn</id>
+                     <name>Maven China Mirror</name>
+                     <url>http://maven.net.cn/content/groups/public/</url>
+                     <releases>
+                         <enabled>true</enabled>
+                     </releases>
+                     <snapshots>
+                         <enabled>false</enabled>
+                     </snapshots>
+                 </repository>
+             </repositories>
+             <pluginRepositories>
+                 <pluginRepository>
+                     <id>maven-net-cn</id>
+                     <name>Maven China Mirror</name>
+                     <url>http://maven.net.cn/content/groups/public/</url>
+                     <releases>
+                         <enabled>true</enabled>
+                     </releases>
+                     <snapshots>
+                         <enabled>false</enabled>
+                     </snapshots>
+                 </pluginRepository>
+             </pluginRepositories>
+         </profile>
+     </profiles>
     <activeProfiles>
         <activeProfile>development</activeProfile>
     </activeProfiles>
-</settings>
+</profilesXml>
