@@ -3,27 +3,31 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-autowire="byName">
+
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <!-- 指定sqlMapConfig总配置文件，订制的environment在spring容器中不在生效-->
         <property  name="configLocation"  value="classpath:sqlMaps.xml"/>
     </bean>
 
-    <beans profile="development">
-        <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-            <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-            <property name="url" value="jdbc:mysql://localhost:3306/ultrax"/>
-            <property name="username" value="root"/>
-            <property name="password" value="root"/>
-        </bean>
-    </beans>
-    <beans profile="production">
-        <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean" destroy-method="close">
+    <bean id="forumThreadDao" class="com.eagle.dao.forum.impl.ForumThreadDaoImpl">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+    </bean>
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/ultrax"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
+
+    <!--<beans profile="production">
+        <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
             <property name="jndiName">
                 <value>java:comp/env/ultraxDataSource</value>
             </property>
         </bean>
-    </beans>
+    </beans>-->
+
 
 
 

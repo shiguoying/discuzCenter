@@ -4,10 +4,59 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="forumThread">
     <resultMap id="allResult" type="com.eagle.dao.forum.ForumThread">
-        <result column=""></result>
+        <result column="TID" property="tid" javaType="java.lang.Long"/>
+        <result column="FID" property="fid" javaType="java.lang.Long"/>
+        <result column="posttableid" property="postTableId" javaType="java.lang.Integer"/>
+        <result column="typeid" property="typeId" javaType="java.lang.Integer"/>
+        <result column="sortid" property="sortId" javaType="java.lang.Integer"/>
+        <result column="readperm" property="readPerm" javaType="java.lang.Integer"/>
+        <result column="price" property="price" javaType="java.lang.Integer"/>
+        <result column="author" property="author" javaType="java.lang.String"/>
+        <result column="authorid" property="authorId" javaType="java.lang.Integer"/>
+        <result column="subject" property="subject" javaType="java.lang.String"/>
+        <result column="dateline" property="dateline" javaType="java.lang.Integer"/>
+        <result column="lastpost" property="lastPost" javaType="java.lang.Integer"/>
+        <result column="lastposter" property="lastPoster" javaType="java.lang.String"/>
+        <result column="views" property="views" javaType="java.lang.Integer"/>
+        <result column="replies" property="replies" javaType="java.lang.Long"/>
+        <result column="displayorder" property="displayOrder" javaType="java.lang.Integer"/>
+        <result column="highlight" property="highlight" javaType="java.lang.Integer"/>
+        <result column="digest" property="digest" javaType="java.lang.Integer"/>
+        <result column="rate" property="rate" javaType="java.lang.Integer"/>
+        <result column="special" property="special" javaType="java.lang.Integer"/>
+        <result column="attachment" property="attachment" javaType="java.lang.Integer"/>
+        <result column="moderated" property="moderated" javaType="java.lang.Integer"/>
+        <result column="closed" property="closed" javaType="java.lang.Integer"/>
+        <result column="stickreply" property="stickReply" javaType="java.lang.Integer"/>
+        <result column="recommends" property="recommends" javaType="java.lang.Integer"/>
+        <result column="recommend_add" property="recommendAdd" javaType="java.lang.Integer"/>
+        <result column="recommend_sub" property="recommendSub" javaType="java.lang.Integer"/>
+        <result column="heats" property="heats" javaType="java.lang.Integer"/>
+        <result column="status" property="status" javaType="java.lang.Integer"/>
+        <result column="isgroup" property="isGroup" javaType="java.lang.Integer"/>
+        <result column="favtimes" property="favTimes" javaType="java.lang.Long"/>
+        <result column="sharetimes" property="shareTimes" javaType="java.lang.Long"/>
+        <result column="stamp" property="stamp" javaType="java.lang.Integer"/>
+        <result column="icon" property="icon" javaType="java.lang.Integer"/>
+        <result column="pushedaid" property="pushedAid" javaType="java.lang.Long"/>
+        <result column="cover" property="cover" javaType="java.lang.Integer"/>
+        <result column="replycredit" property="replyCredit" javaType="java.lang.Integer"/>
+        <result column="relatebytag" property="relateByTag" javaType="java.lang.String"/>
+        <result column="maxposition" property="maxPosition" javaType="java.lang.Integer"/>
+        <result column="bgcolor" property="bgColor" javaType="java.lang.String"/>
+        <result column="comments" property="comments" javaType="java.lang.Integer"/>
+        <result column="hidden" property="hidden" javaType="java.lang.Integer"/>
     </resultMap>
-    <select id="selectAll" resultMap="allResult">
-         select  * from pre_forum_thread
+
+    <sql id="selectAll">
+        TID,FID,posttableid,typeid,sortid,readperm,price,author,authorid,subject,dateline,lastpost,lastposter,
+        views,replies,displayorder,highlight,digest,rate,special,attachment,moderated,closed,stickreply,recommends,
+        recommend_add,recommend_sub,heats,status,isgroup,favtimes,sharetimes,stamp,icon,pushedaid,cover,replycredit,
+        relatebytag,maxposition,bgcolor,comments,hidden
+    </sql>
+
+    <select id="findAll" resultMap="allResult">
+         select <include refid="selectAll"/> from pre_forum_thread
     </select>
 
 </mapper>

@@ -5,63 +5,18 @@
      <profiles>
          <profile>
              <id>development</id>
-             <repositories>
-                 <repository>
-                     <id>maven-net-cn</id>
-                     <name>Maven China Mirror</name>
-                     <url>http://maven.net.cn/content/groups/public/</url>
-                     <releases>
-                         <enabled>true</enabled>
-                     </releases>
-                     <snapshots>
-                         <enabled>false</enabled>
-                     </snapshots>
-                 </repository>
-             </repositories>
-             <pluginRepositories>
-                 <pluginRepository>
-                     <id>maven-net-cn</id>
-                     <name>Maven China Mirror</name>
-                     <url>http://maven.net.cn/content/groups/public/</url>
-                     <releases>
-                         <enabled>true</enabled>
-                     </releases>
-                     <snapshots>
-                         <enabled>false</enabled>
-                     </snapshots>
-                 </pluginRepository>
-             </pluginRepositories>
+             <properties>
+                <dataSource.type>dbcp</dataSource.type>
+             </properties>
          </profile>
          <profile>
              <id>production</id>
-             <repositories>
-                 <repository>
-                     <id>maven-net-cn</id>
-                     <name>Maven China Mirror</name>
-                     <url>http://maven.net.cn/content/groups/public/</url>
-                     <releases>
-                         <enabled>true</enabled>
-                     </releases>
-                     <snapshots>
-                         <enabled>false</enabled>
-                     </snapshots>
-                 </repository>
-             </repositories>
-             <pluginRepositories>
-                 <pluginRepository>
-                     <id>maven-net-cn</id>
-                     <name>Maven China Mirror</name>
-                     <url>http://maven.net.cn/content/groups/public/</url>
-                     <releases>
-                         <enabled>true</enabled>
-                     </releases>
-                     <snapshots>
-                         <enabled>false</enabled>
-                     </snapshots>
-                 </pluginRepository>
-             </pluginRepositories>
+             <properties>
+                 <dataSource.type>jndi</dataSource.type>
+             </properties>
          </profile>
      </profiles>
+
     <activeProfiles>
         <activeProfile>development</activeProfile>
     </activeProfiles>
